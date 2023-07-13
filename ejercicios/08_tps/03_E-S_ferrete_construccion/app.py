@@ -80,7 +80,6 @@ class App(customtkinter.CTk):
         g_per_perimeter = (perimeter / 250) + 4
         poste_quebracho_grueso = int(g_per_perimeter)
 
-
         #C Cantidad de (V)
 
         f_per_perimeter = (perimeter / 12) - 4

@@ -7,6 +7,9 @@ import random
 
 
 '''
+nombre: Catriel
+apellido: Gatto
+---
 Adivina el número (v 1.0):
 Al comenzar el juego generamos un número secreto del 1 al 100, en la pantalla del juego dispondremos de un cuadro de texto 
 para ingresar un número y un botón “Verificar”, si el número ingresado es el mismo que el número secreto se dará por terminado
@@ -43,10 +46,36 @@ class App(customtkinter.CTk):
         print(self.numero_secreto)
 
 
-
     def btn_mostrar_on_click(self):
-        pass
+        self.numero_intento += 1
 
+        num = self.txt_numero.get()
+        num_int = int(num)
+
+        secret_num = int(self.numero_secreto)
+
+        mensaje_victoria = f"Ganó en {self.numero_intento} intento/s"
+        
+        if num_int == secret_num:
+            match self.numero_intento:
+                case 1:
+                    mensaje = f"{mensaje_victoria}. Usted es un Psíquico"
+                case 2:
+                    mensaje = f"{mensaje_victoria}. Excelente percepción"
+                case 3:
+                    mensaje = f"{mensaje_victoria}. Esto es suerte"
+                case  4 | 5 | 6:
+                    mensaje = f"{mensaje_victoria}. Excelente técnica"
+                case _ :
+                    mensaje = f"{mensaje_victoria}. Afortunado en el amor!!."
+        elif num_int < secret_num:
+            mensaje = "¡Un número más alto! Falta..."
+        else:
+            mensaje = "¡Un número más bajo! Se pasó..."
+        
+        self.txt_numero.delete(0, "end")
+
+        alert(title="", message=mensaje)
 
 if __name__ == "__main__":
     app = App()

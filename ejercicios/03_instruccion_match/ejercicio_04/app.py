@@ -39,12 +39,12 @@ class App(customtkinter.CTk):
         mes = self.combobox_mes.get()
 
         match(mes):
-            case "Enero" | "Marzo" | "Mayo" | "Julio" | "Agosto" | "Octubre" | "Diciembre":
-                info_month = "Este mes tiene 31 días"
             case "Febrero":
                 info_month = "Este mes tiene 28 días o 29 días en año bisiesto"
             case "Abril" | "Junio" | "Septiembre" | "Noviembre":
                 info_month = "Este mes tiene 30 días"
+            case _ :
+                info_month = "Este mes tiene 31 días"
 
         alert(title="mensaje", message=info_month)
     

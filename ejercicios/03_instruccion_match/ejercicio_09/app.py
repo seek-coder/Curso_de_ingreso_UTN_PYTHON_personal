@@ -70,22 +70,23 @@ class App(customtkinter.CTk):
                         increase = 20
                     case "Mar del plata":
                         discount = 20
-                    case "Cataratas" | "Cordoba":
+                    case _ :
                         discount = 10
             case "Verano":
                 match (destiny):
                     case "Bariloche" :
                         discount = 20
-                    case "Cataratas" | "Cordoba":
-                        increase = 10
                     case "Mar del plata":
                         increase = 20
-            case "Primavera" | "Otoño":
-                match (destiny):
-                    case "Bariloche" | "Cataratas" | "Mar del plata":
+                    case _ :
                         increase = 10
+            case _ :
+                match (destiny):
                     case "Cordoba":
                         discount = 0
+                    case _ :
+                        increase = 10
+
 
         discount_total = stay_price * (discount / 100)
         final_price_discount = stay_price - discount_total

@@ -32,9 +32,27 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        count = 0
+        sum_number = 0
+        average_number = 0
+        numbers = []
 
-    
+        while True:
+            ask_number = prompt(title="",prompt=f"Ingrese un número cualquiera\n\n(Numeros elegidos hasta el momento:{count}):")
+            count += 1
+            number = float(ask_number)
+
+            numbers.append(ask_number)
+
+            sum_number += number
+            average_number += number / count
+
+            if ask_number == None:
+                self.txt_suma_acumulada.delete(0, "end")
+                self.txt_suma_acumulada.insert(0, sum_number)
+                self.txt_promedio.delete(0, "end")
+                self.txt_promedio.insert(0, average_number)
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

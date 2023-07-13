@@ -37,7 +37,7 @@ class App(customtkinter.CTk):
         match(destiny):
             case "Bariloche" | "Ushuaia":
                 tiempo = "frío"
-            case "Mar del plata" | "Cataratas":
+            case _ :
                 tiempo = "calor"
 
         info_tiempo = "En {0} hace {1} la mayoría de las estaciones del año".format(destiny, tiempo)
