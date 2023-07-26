@@ -73,10 +73,6 @@ class App(customtkinter.CTk):
                         trip_info = "Se viaja"
         alert(title="", message=trip_info)
 
-
-
-            
-    
 if __name__ == "__main__":
     app = App()
     app.mainloop()

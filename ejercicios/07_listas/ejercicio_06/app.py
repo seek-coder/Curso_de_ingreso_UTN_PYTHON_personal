@@ -24,7 +24,13 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        data_list_acc = 0
+
+        for i in self.lista_datos:
+            data_list_acc += i
+        
+        data_list_average = data_list_acc / len(self.lista_datos)
+        alert(title="", message=f"El promedio de la lista es: {data_list_average}")
     
 if __name__ == "__main__":
     app = App()

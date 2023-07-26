@@ -25,21 +25,18 @@ class App(customtkinter.CTk):
         self.btn_pedir_clave = customtkinter.CTkButton(master=self, text="Ingresar", command=self.btn_pedir_clave_on_click)
         self.btn_pedir_clave.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
-    
     def btn_pedir_clave_on_click(self):
-        while True:
-            password = prompt(title="",prompt="Ingrese la contraseña:" )
-            if (password == "utn750"):
-                mensaje_de_contraseña = "Contraseña CORRECTA"
-                break
-            else:
-                mensaje_de_contraseña = "Contraseña INCORRECTA. Volver a ingresar"
-                continue
+        correct_password = "utn750"
+        password = prompt(title="",prompt="Ingrese la contraseña: ")
 
-            alert(title="", message=mensaje_de_contraseña)
+        while correct_password != password:
+            alert(title="",message="Contraseña inválida")
+            password = prompt(title="",prompt="Ingrese la contraseña: ")
 
+        alert(title="",message="Contraseña válida")
+        
+        
 
-    
 if __name__ == "__main__":
     app = App()
     app.mainloop()

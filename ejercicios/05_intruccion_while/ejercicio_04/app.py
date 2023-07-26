@@ -27,16 +27,15 @@ class App(customtkinter.CTk):
         self.btn_validar_numero.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
     def btn_validar_numero_on_click(self):
-        while True:
-            number = prompt(title="",prompt="Ingrese un número:" )
-            number_int = int(number)
-            
-            if (number_int >= 0 and number_int <= 9):
-                alert(title="", message="Número válido")
-                break
-            else:
-                alert(title="", message="Número inválido")
-                continue
+
+        number = prompt(title="", prompt="Ingrese un número: ")
+
+        while int(number) < 0 or int(number) > 9: 
+            alert(title="", message="Número inválido")
+            number = prompt(title="", prompt="Ingrese un número: ")
+        alert(title="", message="Número válido")
+
+
 
     
 if __name__ == "__main__":

@@ -50,7 +50,60 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        while True:
+            last_name = prompt(title="APELLIDO", prompt="Hola, somos Rising BTL. A continuación le solicitaremos algunos datos.\n\nIngrese su apellido: ")
+            if last_name == None or last_name == "" or last_name.isdigit():
+                alert(title="ERROR",message="No ha ingresado ningún dato o el apellido es inválido. Vuelva a intentarlo.")
+                continue
+            break
+
+        while True:
+            age = prompt(title="AGE", prompt="Ingrese su edad (entre 18 y 90 años inclusive): ")
+            valid_age_interval = int(age) >= 18 and int(age) <= 90
+            if age == None or age == "" or age.isdigit() == False or not valid_age_interval:
+                alert(title="ERROR",message="No ha ingresado ningún dato o la edad no es válida. Vuelva a intentarlo.")
+                continue
+            break
+
+        soltero = ["Soltero", "Soltera"]
+        casado = ["Casado", "Casada"]
+        divorciado = ["Divorciado", "Divorciada"]
+        viudo = ["Viudo", "Viuda"]
+        while True:
+            civil_status = prompt(title="ESTADO CIVIL", prompt="Ingrese su estado civil: \n\n(Especifique: Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+            if civil_status == None or civil_status == "" or civil_status not in soltero + casado + divorciado + viudo:
+                alert(title="ERROR",message="No ha ingresado ningún dato o el estado civil no es corresponde a ninguno de la lista. Vuelva a intentarlo.")
+                continue
+
+            if civil_status in soltero:
+                civil_status = "Soltero/a"
+            elif civil_status in casado:
+                civil_status = "Casado/a"
+            elif civil_status in divorciado:
+                civil_status = "Divorciado/a"
+            elif civil_status in viudo:
+                civil_status = "Viudo/a"
+            break
+
+        print(civil_status)
+
+        while True:
+            num_id = prompt(title="NÚMERO DE LEGAJO", prompt="Ingrese su número de legajo (de cuatro cifras y sin ceros a la izquierda): ")
+            if num_id == None or num_id == "" or num_id.isdigit() == False or len(num_id) != 4 or int(num_id) < 1000:
+                alert(title="ERROR",message="No ha ingresado ningún dato o el número de legajo es inválido. Vuelva a intentarlo.")
+                continue
+            break
+
+        self.txt_apellido.delete(0, "end")
+        self.txt_apellido.insert(0, last_name)
+
+        self.txt_edad.delete(0, "end")
+        self.txt_edad.insert(0, age)
+
+        self.combobox_tipo.set(civil_status)
+
+        self.txt_legajo.delete(0, "end")
+        self.txt_legajo.insert(0, num_id)
 
 
 if __name__ == "__main__":

@@ -27,18 +27,14 @@ class App(customtkinter.CTk):
         self.btn_validar_letra.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
     
-    def btn_validar_letra_on_click(self):
-        while True:
-            letter = prompt(title="",prompt="Ingrese una letra:" )
-            match(letter):
-                case "U" | "T" | "N":
-                    alert(title="", message="Letra válida")
-                    break
-                case _ :
-                    alert(title="", message="Letra inválida")
-                    continue
-            
-    
+    def btn_validar_letra_on_click(self): #probando el case
+        letter_msg = prompt(title="",prompt="Ingrese una letra: ")
+
+        while letter_msg != "U" and letter_msg != "T" and letter_msg != "N":
+            alert(title="", message="Letra inválida")
+            letter_msg = prompt(title="",prompt="Ingrese una letra: ")
+        alert(title="", message="Letra válida")
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

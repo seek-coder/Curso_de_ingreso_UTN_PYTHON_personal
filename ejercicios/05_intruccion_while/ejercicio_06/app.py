@@ -34,9 +34,6 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        sum = self.txt_suma_acumulada.get()
-        average = self.txt_promedio.get()
-
     #    number1 = prompt(title="",prompt="Ingrese el primer número (de cinco)")
     #    number2 = prompt(title="",prompt="Ingrese el segundo número (de cinco)")
     #    number3 = prompt(title="",prompt="Ingrese el tercer número (de cinco)")
@@ -51,28 +48,25 @@ class App(customtkinter.CTk):
 
     #    numbers_sum_of_5 = number1_float + number2_float + number3_float + number4_float + number5_float
     #    average_sum_of_5 = (number1_float + number2_float + number3_float + number4_float + number5_float) / 5
+    #average_number = 0
+    #numbers = []
         count = 0
         sum_number = 0
-        average_number = 0
-        numbers = []
 
-        while True:
-            count += 1
-            ask_number = prompt(title="",prompt=f"Ingrese un número para la posición {count}:")
+        while count < 5:
+            ask_number = prompt(title="",prompt=f"Ingrese un número: \n\n Cantidad de números ingresados: {count}")
             number = float(ask_number)
-
-            numbers.append(ask_number)
+            count += 1
 
             sum_number += number
-            average_number += number / 5
 
-            if (count == 5):
-                self.txt_suma_acumulada.delete(0, "end")
-                self.txt_suma_acumulada.insert(0, sum_number)
-                self.txt_promedio.delete(0, "end")
-                self.txt_promedio.insert(0, average_number)
+            average_number = sum_number / 5
+            self.txt_suma_acumulada.delete(0, "end")
+            self.txt_suma_acumulada.insert(0, sum_number)
+            self.txt_promedio.delete(0, "end")
+            self.txt_promedio.insert(0, average_number)
 
-                break
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

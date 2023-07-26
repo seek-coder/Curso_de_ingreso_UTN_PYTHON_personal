@@ -24,8 +24,31 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
-    
+        max_num = None
+
+        for i in self.lista_datos:
+            if max_num == None or max_num < i:
+                max_num = i
+
+        alert(title="", message=f"El número más grande de la lista es: {max_num}")
+'''
+        count = 0
+
+        for i in self.lista_datos:
+            if count == 0:
+                max_num = i
+                min_num = i
+            else:
+                if i > max_num:
+                    max_num = i
+                elif i < min_num:
+                    min_num = i
+            count += 1
+        alert(title="", message=f"El número más grande de la lista es: {max_num}")
+        #print(max_num, min_num)
+'''
+
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()

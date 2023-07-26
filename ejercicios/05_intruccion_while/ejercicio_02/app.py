@@ -27,14 +27,11 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-            count = 11
+            i = 11 #no es un contador porque no arranca en 0
 
-            while True:
-                count -= 1
-                alert(title="", message=count)
-
-                if count == 1:
-                    break
+            while i > 1 :
+                i -= 1
+                alert(title="", message=i)
     
     
 if __name__ == "__main__":
