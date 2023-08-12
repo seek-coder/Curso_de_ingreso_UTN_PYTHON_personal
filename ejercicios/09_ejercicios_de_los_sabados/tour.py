@@ -55,9 +55,8 @@ class App(customtkinter.CTk):
 
             while True:
                 age = prompt(title="EDAD", prompt="Ingrese su edad (en números): ")
-                if age == None or age == "" or age.isdigit() is False:
+                while age == None or age == "" or age.isdigit() is False:
                     alert(title="ERROR", message="Edad inválida. Ingresela nuevamente.")
-                    continue
                 break
 
             while True:
@@ -117,13 +116,13 @@ class App(customtkinter.CTk):
                     alert(title="CANCELAR", message="Escriba específicamente el tipo de excursión.")
                     continue
 
+                if high_price == None or price_int > high_price:
+                    high_price = price_int
+                    high_price_type = trip_type
                 if low_price == None or price_int < low_price:
                     low_price = price_int
                     low_price_type = trip_type
                 
-                if high_price == None or price_int > high_price:
-                    high_price = price_int
-                    high_price_type = trip_type
 
                 total_price += price_int
                 count += 1

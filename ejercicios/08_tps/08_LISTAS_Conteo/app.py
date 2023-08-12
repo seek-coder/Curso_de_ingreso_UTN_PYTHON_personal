@@ -68,8 +68,6 @@ class App(customtkinter.CTk):
         min_negative_num = None
         max_positive_num = None
 
-        negative_average = 0
-
         even_list = []
         highest_num_list = []
 

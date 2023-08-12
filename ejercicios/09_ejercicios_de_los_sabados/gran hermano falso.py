@@ -70,26 +70,26 @@ class App(customtkinter.CTk):
 
             vote_name = prompt(title="", prompt="Ingrese su nombre: ")
             for i in range(100): ##100 como valor "infinito"
-                if vote_name == None or vote_name == "":
+                while vote_name == None or vote_name == "":
                     alert(title="", message="Datos inválidos.\n\nPruebe nuevamente.")
                     vote_name = prompt(title="", prompt="Ingrese su nombre: ")
 
             age = prompt(title="", prompt="Ingrese su edad (mayor a 13): ")
             for i in range(100):
-                if age == None or age == "" or age.isdigit() == False or int(age) <= 13:
+                while age == None or age == "" or age.isdigit() == False or int(age) <= 13:
                     alert(title="", message="Datos inválidos.\n\nPruebe nuevamente.")
                     age = prompt(title="", prompt="Ingrese su edad (mayor a 13): ")
             age_int = int(age)
 
             genre = prompt(title="", prompt="Ingrese su género (escriba especificamente 'Masculino', 'Femenino' u 'Otro'): ")
             for i in range(100):
-                if genre == None or genre == "" or genre not in ["Masculino", "Femenino", "Otro"]:
+                while genre == None or genre == "" or genre not in ["Masculino", "Femenino", "Otro"]:
                     alert(title="", message="Datos inválidos.\n\nPruebe nuevamente.")
                     genre = prompt(title="", prompt="Ingrese su género (escriba especificamente 'Masculino', 'Femenino' u 'Otro'): ")
 
             vote_negative = prompt(title="", prompt="Ingrese el voto negativo (escriba específicamente 'Giovanni', 'Gianni' o 'Facu'): ")
             for i in range(100):
-                if vote_negative == None or vote_negative == "" or vote_negative not in ["Giovanni", "Gianni", "Facu"]:
+                while vote_negative == None or vote_negative == "" or vote_negative not in ["Giovanni", "Gianni", "Facu"]:
                     alert(title="", message="Datos inválidos.\n\nPruebe nuevamente.")
                     vote_negative = prompt(title="", prompt="Ingrese el voto negativo (escriba específicamente 'Giovanni', 'Gianni' o 'Facu'): ")
             total_vote_sum += 1
