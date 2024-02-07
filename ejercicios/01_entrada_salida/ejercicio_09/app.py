@@ -46,10 +46,13 @@ class App(customtkinter.CTk):
         sueldo_float = float(sueldo)
         incremento_float = float(incremento)
 
-        sueldo_actualizado = sueldo_float + ((incremento_float * sueldo_float) / 100)
-        sueldo_actualizado_float = float(sueldo_actualizado)
+        incremento = incremento_float * sueldo_float / 100
 
-        alert(title="Sueldo actualizado", message="Su sueldo actualizado, luego del incremento, es de " + str(sueldo_actualizado_float))
+        sueldo_actualizado = sueldo_float + incremento
+        # sueldo_actualizado_float = float(sueldo_actualizado)
+        # ¡no hace falta pasarlo a float! Evitar redundancias
+
+        alert(title="Sueldo actualizado", message="Su sueldo actualizado, luego del incremento, es de " + str(sueldo_actualizado))
         
     
 if __name__ == "__main__":
