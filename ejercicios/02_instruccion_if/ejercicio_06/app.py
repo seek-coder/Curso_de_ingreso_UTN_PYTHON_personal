@@ -38,15 +38,57 @@ class App(customtkinter.CTk):
         edad = self.txt_edad.get()
         edad_int = int(edad)
         
-        if (edad_int < 10):
+        if edad_int < 10:
             mensaje = "NIÑO"
-        elif (edad_int >= 10 and edad_int < 13):
+        elif edad_int >= 10 and edad_int < 13:
             mensaje = "PRE-ADOLESCENTE"
-        elif (edad_int >= 13 and edad_int < 18):
+        elif edad_int >= 13 and edad_int < 18:
             mensaje = "ADOLESCENTE"
         else:
             mensaje = "MAYOR"
 
+        alert(title="Mensaje", message=mensaje)
+
+    # ----- 6bis -----
+    # A partir del ingreso de la altura en centímetros de un jugador de baloncesto, el programa deberá determinar la posición del jugador en la cancha,
+    # considerando los siguientes parametros:
+
+    # Menos de 160 cm: Base
+    # Entre 160 cm y 179 cm: Escolta
+    # Entre 180 cm y 199 cm: Alero
+    # 200 cm o más: Ala-Pívot o Pívot
+
+    # PRIMER INTENTO
+    def btn_mostrar_on_click(self):
+        altura = self.txt_altura.get()
+        altura_int = int(altura)
+        
+        if altura_int < 160:
+            mensaje = "Base"
+        elif altura_int >= 160 and altura_int < 180:
+            mensaje = "Escolta"
+        elif altura_int >= 180 and altura_int < 200:
+            mensaje = "Alero"
+        else:
+            mensaje = "Ala-Pívot o Pívot"
+
+        alert(title="Mensaje", message=mensaje)
+
+    # SEGUNDO INTENTO
+    altura = self.txt_altura.get()
+        altura_int = int(altura)
+        
+        if altura_int < 160:
+            posicion = "Base"
+        elif altura_int >= 160 and altura_int < 180:
+            posicion = "Escolta"
+        elif altura_int >= 180 and altura_int < 200:
+            posicion = "Alero"
+        else:
+            posicion = "Ala-Pívot o Pívot"
+
+        mensaje = f"Su posición es {posicion}"
+        
         alert(title="Mensaje", message=mensaje)
         
         
