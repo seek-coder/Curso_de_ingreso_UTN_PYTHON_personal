@@ -100,6 +100,33 @@ class App(customtkinter.CTk):
         info_building = "Los metros cuadrados del terreno dan un total de {0}m2 y el perímetro es de {1}mts.\n\nLa cantidad de postes de quebracho grueso es de {2}, la cantidad de postes de quebracho fino es de {3} y de varillas es {4}.\n\nLa cantidad total de alambre alta resistencia 17/15 considerando 7 hilos es un total de {5}mts".format(m2, perimeter, poste_quebracho_grueso, poste_quebracho_fino, varillas, wire_float)
 
         alert(title="", message=info_building)
+        
+    # =============================================== #
+    # =============================================== #
+    # TP 3 2024 1er curso de ingreso
+    # =============================================== #
+    # =============================================== #
+
+    def btn_cantidad_camiones_on_click(self):
+        toneladas = self.txt_toneladas.get()
+        toneladas_float = float(toneladas)
+
+        camiones_por_tonelada = toneladas_float * 1000 / 3500
+        redondeo_camiones_por_tonelada = math.ceil(camiones_por_tonelada)
+
+        mensaje = f"Para transportar {toneladas} toneladas es/son necesario/s {redondeo_camiones_por_tonelada} camion/es."
+
+        alert("UTN", mensaje)
+
+    def btn_tiempo_llegada_on_click(self):
+        kilometros = self.txt_kilometros.get()
+        kilometros_float = float(kilometros)
+
+        tiempo_necesario = kilometros_float / 90
+
+        mensaje = f"Para recorrer {kilometros} km se necesitan {tiempo_necesario:.3} HS."
+
+        alert("UTN", mensaje)
 
 
 
