@@ -32,6 +32,28 @@ class App(customtkinter.CTk):
             while i > 1 :
                 i -= 1
                 alert(title="", message=i)
+
+        # BIS 2 (1)
+        suma = 0
+        numero = 1
+
+        while numero <= 10:
+            if numero % 2 == 0:
+                suma += numero
+            numero += 1
+
+        # BIS 2 (2)
+        # Inicializamos la variable de suma
+        suma = 0
+        # Inicializamos el número en 2, ya que es el primer número par dentro del rango
+        numero = 2
+        
+        # Mientras el número sea menor o igual a 10
+        while numero <= 10:
+            # Sumamos el número a la variable de suma
+            suma += numero
+            # Aumentamos el número en 2 para pasar al siguiente número par
+            numero += 2
     
     
 if __name__ == "__main__":
