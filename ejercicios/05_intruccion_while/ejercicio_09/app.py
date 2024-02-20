@@ -89,9 +89,8 @@ class App(customtkinter.CTk):
         if number_float > maximo or bandera_primer_ingreso == False:
             maximo = number_float
         if number_float < minimo or bandera_primer_ingreso == False:
-            minimo = number_float
-
-        bandera_primer_ingreso = True
+            minimo = number_floaT
+            bandera_primer_ingreso = True
 
 if __name__ == "__main__":
     app = App()
