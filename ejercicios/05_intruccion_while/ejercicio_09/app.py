@@ -35,6 +35,7 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
+        # MALA PRÁCTICA
         count = 0
         max_number = None #variable vacía
         min_number = None
@@ -58,6 +59,39 @@ class App(customtkinter.CTk):
         self.txt_minimo.insert(0, min_number)
         self.txt_maximo.delete(0, "end")
         self.txt_maximo.insert(0, max_number)
+
+        # SOLUCIÓN 1
+        max_number = None #variable vacía
+        min_number = None
+
+        while True:
+            ask_number = prompt(title="",prompt=f"Ingrese un número cualquiera:\n\n")
+            # hago el break antes de parsearlo
+            if ask_number == None:
+                break
+            number_float = float(ask_number)
+
+            if max_number == None or number_float > max_number:
+                max_number = number_float
+            if min_number == None or number_float < min_number:
+                min_number = number_float
+            print(min_number, max_number)
+        self.txt_minimo.delete(0, "end")
+        self.txt_minimo.insert(0, min_number)
+        self.txt_maximo.delete(0, "end")
+        self.txt_maximo.insert(0, max_number)
+
+        # SOLUCIÓN 2
+        bandera_primer_ingreso = False
+        maximo = 0
+        minimo = 0
+
+        if number_float > maximo or bandera_primer_ingreso == False:
+            maximo = number_float
+        if number_float < minimo or bandera_primer_ingreso == False:
+            minimo = number_float
+
+        bandera_primer_ingreso = True
 
 if __name__ == "__main__":
     app = App()
